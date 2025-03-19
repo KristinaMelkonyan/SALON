@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOR EVERYONE - Контакты</title>
+    <style>
+        #success-message {
+            display: none;
+            margin-top: 1rem;
+            color: green;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        nav a {
+            margin-right: 1.5rem;
+            text-decoration: none;
+            color: #555;
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #a569bd;
+        }
+
+        #hero {
+            background-image: url('https://i.pinimg.com/originals/f0/25/e4/f025e46606848011a0312f97c8b93298.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        #hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        #hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #a569bd;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #8e44ad;
+        }
+
+        #about, #specials, #contact {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .special-offer {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: #fff;
+            text-align: center;
+            padding: 1rem;
+            border-top: 1px solid #ddd;
+        }
+
+        #appointment {
+            margin: 4rem auto;
+            padding: 3rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+
+        #appointment h2 {
+            margin-bottom: 2rem;
+            color: #a569bd;
+        }
+
+        #appointment label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        #appointment input,
+        #appointment textarea,
+        #appointment select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        #appointment button[type="submit"] {
+            background-color: #a569bd;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #appointment button[type="submit"]:hover {
+            background-color: #8e44ad;
+        }
+
+        #search-container {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        #search-input {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        #search-service {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            list-style: none;
+            padding: 0;
+        }
+
+        #search-service li {
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        #search-service li:hover {
+            background-color: #f0f0f0;
+        }
+
+        #contact iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+
+        #contact .contact-info {
+            margin-top: 2rem;
+        }
+
+        #contact .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        #contact-form {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FOR EVERYONE</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="services.html">Услуги</a>
+            <a href="about.html">О нас</a>
+            <a href="gallery.html">Галерея</a>
+            <a href="contact.html">Контакты</a>
+        </nav>
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="Поиск услуг...">
+            <ul id="search-service"></ul>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h2>Красота для каждого</h2>
+            <p>Ваш путь к совершенству начинается здесь! Мы предлагаем широкий спектр услуг, от классических процедур до самых современных техник, чтобы подчеркнуть вашу индивидуальность и помочь вам почувствовать себя на все 100%.</p>
+        </section>
+
+        <section id="specials">
+            <h2>Специальные предложения</h2>
+            <div class="special-offer">
+                <h3>Скидка 15% на комплексную процедуру ухода за волосами</h3>
+                <p>Акция действительна до конца месяца.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Наши контакты</h2>
+            <div id="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.9556158824677!2d37.6177735158297!3d55.75577008043944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b545a5f2265765%3A0x9f896456830eb300!2z0JzQtdGC0YDQvtC90L7Qu9C40YLQtdC90LjRjyDQv9C-0YHQutC40Y8!5e0!3m2!1sru!2sru!4v1698893733813!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="contact-info">
+                <p><strong>Адрес:</strong>  Москва, ул. Пушкина, д. 10 (Замените на ваш адрес)</p>
+                <p><strong>Телефон:</strong> +7 (123) 456-78-90 (Замените на ваш номер)</p>
+                <p><strong>Email:</strong> info@foreveryon.ru (Замените на ваш email)</p>
+                <p><strong>Время работы:</strong> Пн-Пт 10:00 - 20:00, Сб 10:00 - 18:00, Вс - выходной (Замените на ваше время работы)</p>
+            </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 FOR EVERYONE</p>
+    </footer>
+    <script>
+        const services = [
+            "Стрижка",
+            "Укладка",
+            "Макияж",
+            "Маникюр",
+            "Педикюр",
+            "Наращивание ресниц",
+            "Ботокс для волос",
+            "Ламинирование волос",
+            "Кератиновое выпрямление"
+        ];
+
+        const searchServiceList = document.getElementById('search-service');
+        const appointmentServiceSelect = document.getElementById('appointment-service');
+        const searchInput = document.getElementById('search-input');
+
+        function populateSelect(servicesArray, selectElement) {
+            servicesArray.forEach(service => {
+                const option = document.createElement('option');
+                option.value = service.toLowerCase();
+                option.text = service;
+                selectElement.appendChild(option);
+            });
+        }
+
+        populateSelect(services, appointmentServiceSelect);
+
+        function populateSearchList(servicesArray) {
+            servicesArray.forEach(service => {
+                const li = document.createElement('li');
+                li.textContent = service;
+                li.addEventListener('click', () => {
+                    searchInput.value = service;
+                    searchServiceList.style.display = 'none';
+                    appointmentServiceSelect.value = service.toLowerCase();
+                });
+                searchServiceList.appendChild(li);
+            });
+        }
+
+        populateSearchList(services);
+
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            searchServiceList.querySelectorAll('li').forEach(li => {
+                if (li.textContent.toLowerCase().includes(searchTerm)) {
+                    li.style.display = 'block';
+                } else {
+                    li.style.display = 'none';
+                }
+            });
+            searchServiceList.style.display = 'block';
+        });
+
+
+        searchInput.addEventListener('blur', () => {
+            setTimeout(() => {
+                searchServiceList.style.display = 'none';
+            }, 200);
+        });
+
+        document.getElementById('appointment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Здесь можно добавить код для отправки данных на сервер
+            alert("Заявка отправлена!"); // Замените на реальную отправку данных
+            document.getElementById('success-message').style.display = 'block';
+        });
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert("Сообщение отправлено!"); // Замените на реальную отправку данных
+        });
+    </script>
+</body>
+</html>
