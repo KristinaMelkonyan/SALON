@@ -6,11 +6,10 @@
     <title>FOR EVERYONE - Салон красоты</title>
     <style>
         #success-message {
-    display: none; /* Скрываем по умолчанию */
-    margin-top: 1rem; /* Добавил отступ сверху для лучшего отображения */
-    color: green; /* Для лучшей видимости */
-}
-
+            display: none;
+            margin-top: 1rem;
+            color: green;
+        }
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -24,6 +23,9 @@
             background-color: #fff;
             padding: 1rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         h1 {
@@ -145,6 +147,43 @@
         #appointment button[type="submit"]:hover {
             background-color: #8e44ad;
         }
+
+        #search-container {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        #search-input {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        #search-service {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            list-style: none;
+            padding: 0;
+        }
+
+        #search-service li {
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        #search-service li:hover {
+            background-color: #f0f0f0;
+        }
     </style>
 </head>
 <body>
@@ -157,6 +196,10 @@
             <a href="gallery.html">Галерея</a>
             <a href="contact.html">Контакты</a>
         </nav>
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="Поиск услуг...">
+            <ul id="search-service"></ul>
+        </div>
     </header>
 
     <main>
@@ -186,7 +229,7 @@
 
         <section id="appointment">
             <h2>Запись на прием</h2>
-            <form action="#" method="post">
+            <form id="appointment-form" action="#" method="post">
                 <label for="name">Имя:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -202,14 +245,8 @@
                 <label for="time">Время:</label>
                 <input type="time" id="time" name="time">
 
-                <label for="service">Услуга:</label>
-                <select id="service" name="service">
-                    <option value="">Выберите услугу</option>
-                    <option value="стрижка">Стрижка</option>
-                    <option value="укладка">Укладка</option>
-                    <option value="макияж">Макияж</option>
-                    <!-- Добавьте другие услуги -->
-                </select>
+                <label for="appointment-service">Услуга:</label>
+                <select id="appointment-service" name="service"></select>
 
                 <label for="message">Сообщение:</label>
                 <textarea id="message" name="message" rows="4"></textarea>
@@ -223,17 +260,73 @@
     <footer>
         <p>&copy; 2025 FOR EVERYONE</p>
     </footer>
-     <script>
+    <script>
+        const services = [
+            "Стрижка",
+            "Укладка",
+            "Макияж",
+            "Маникюр",
+            "Педикюр",
+            "Наращивание ресниц",
+            "Ботокс для волос",
+            "Ламинирование волос",
+            "Кератиновое выпрямление"
+        ];
+
+        const searchServiceList = document.getElementById('search-service');
+        const appointmentServiceSelect = document.getElementById('appointment-service');
+        const searchInput = document.getElementById('search-input');
+
+        function populateSelect(servicesArray, selectElement) {
+            servicesArray.forEach(service => {
+                const option = document.createElement('option');
+                option.value = service.toLowerCase();
+                option.text = service;
+                selectElement.appendChild(option);
+            });
+        }
+
+        populateSelect(services, appointmentServiceSelect);
+
+        function populateSearchList(servicesArray) {
+            servicesArray.forEach(service => {
+                const li = document.createElement('li');
+                li.textContent = service;
+                li.addEventListener('click', () => {
+                    searchInput.value = service;
+                    searchServiceList.style.display = 'none';
+                    appointmentServiceSelect.value = service.toLowerCase();
+                });
+                searchServiceList.appendChild(li);
+            });
+        }
+
+        populateSearchList(services);
+
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            searchServiceList.querySelectorAll('li').forEach(li => {
+                if (li.textContent.toLowerCase().includes(searchTerm)) {
+                    li.style.display = 'block';
+                } else {
+                    li.style.display = 'none';
+                }
+            });
+            searchServiceList.style.display = 'block';
+        });
+
+
+        searchInput.addEventListener('blur', () => {
+            setTimeout(() => {
+                searchServiceList.style.display = 'none';
+            }, 200);
+        });
+
         document.getElementById('appointment-form').addEventListener('submit', function(event) {
-            event.preventDefault(); 
-
-            // Здесь можно добавить код для отправки данных на сервер, если это необходимо
-
-            // Показываем сообщение об успешной отправке
+            event.preventDefault();
+            // Здесь можно добавить код для отправки данных на сервер
+            alert("Заявка отправлена!"); // Замените на реальную отправку данных
             document.getElementById('success-message').style.display = 'block';
-
-            // Очищаем форму (опционально)
-            document.getElementById('appointment-form').reset();
         });
     </script>
 </body>
