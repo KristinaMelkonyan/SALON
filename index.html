@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FOR EVERYONE - Салон красоты</title>
     <style>
+        #success-message {
+    display: none; /* Скрываем по умолчанию */
+    margin-top: 1rem; /* Добавил отступ сверху для лучшего отображения */
+    color: green; /* Для лучшей видимости */
+}
+
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -217,9 +223,9 @@
     <footer>
         <p>&copy; 2025 FOR EVERYONE</p>
     </footer>
-    <script>
+     <script>
         document.getElementById('appointment-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Предотвращаем стандартное поведение формы
+            event.preventDefault(); 
 
             // Здесь можно добавить код для отправки данных на сервер, если это необходимо
 
