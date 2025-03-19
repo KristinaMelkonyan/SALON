@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOR EVERYONE - Услуги</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        nav a {
+            margin-right: 1.5rem;
+            text-decoration: none;
+            color: #555;
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #a569bd;
+        }
+
+        #hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        #hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #a569bd;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #8e44ad;
+        }
+
+        #about, #specials, #services {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .special-offer {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: #fff;
+            text-align: center;
+            padding: 1rem;
+            border-top: 1px solid #ddd;
+        }
+
+        #appointment {
+            margin: 4rem auto;
+            padding: 3rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+
+        #appointment h2 {
+            margin-bottom: 2rem;
+            color: #a569bd;
+        }
+
+        #appointment label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        #appointment input,
+        #appointment textarea,
+        #appointment select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        #appointment button[type="submit"] {
+            background-color: #a569bd;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #appointment button[type="submit"]:hover {
+            background-color: #8e44ad;
+        }
+
+        .service {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .service img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .service-description {
+            flex: 1;
+        }
+
+        .service h3 {
+            margin-top: 0;
+        }
+
+        .service-button {
+            background-color: #a569bd;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .service-button:hover {
+            background-color: #8e44ad;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FOR EVERYONE</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="services.html">Услуги</a>
+            <a href="about.html">О нас</a>
+            <a href="gallery.html">Галерея</a>
+            <a href="contact.html">Контакты</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="services">
+            <h2>Наши услуги</h2>
+
+            <div class="service">
+                <img src="image1.jpg" alt="Стрижка">
+                <div class="service-description">
+                    <h3>Стрижки</h3>
+                    <p>Мужские, женские, детские стрижки. Индивидуальный подход к каждому клиенту. Использование профессиональных инструментов и косметики.</p>
+                    <a href="#" class="service-button">Записаться</a>
+                </div>
+            </div>
+
+            <div class="service">
+                <img src="image2.jpg" alt="Укладка">
+                <div class="service-description">
+                    <h3>Укладки</h3>
+                    <p>Разнообразные виды укладок: классические, вечерние, свадебные. Подбор стиля с учетом типа волос и формы лица.</p>
+                    <a href="#" class="service-button">Записаться</a>
+                </div>
+            </div>
+
+            <div class="service">
+                <img src="image3.jpg" alt="Макияж">
+                <div class="service-description">
+                    <h3>Макияж</h3>
+                    <p>Дневной, вечерний, свадебный макияж. Индивидуальный подбор косметики и техники нанесения.</p>
+                    <a href="#" class="service-button">Записаться</a>
+                </div>
+            </div>
+
+            <div class="service">
+                <img src="image4.jpg" alt="Маникюр">
+                <div class="service-description">
+                    <h3>Маникюр</h3>
+                    <p>Классический, европейский, свадебный маникюр. Нанесение гель-лака.</p>
+                    <a href="#" class="service-button">Записаться</a>
+                </div>
+            </div>
+            <div class="service">
+                <img src="image5.jpg" alt="Педикюр">
+                <div class="service-description">
+                    <h3>Педикюр</h3>
+                    <p>Классический, европейский педикюр. Нанесение гель-лака.</p>
+                    <a href="#" class="service-button">Записаться</a>
+                </div>
+            </div>
+        </section>
+        <section id="appointment">
+            <h2>Запись на прием</h2>
+            <form action="#" method="post">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+
+                <label for="date">Дата:</label>
+                <input type="date" id="date" name="date">
+
+                <label for="time">Время:</label>
+                <input type="time" id="time" name="time">
+
+                <label for="service">Услуга:</label>
+                <select id="service" name="service">
+                    <option value="">Выберите услугу</option>
+                    <option value="стрижка">Стрижка</option>
+                    <option value="укладка">Укладка</option>
+                    <option value="макияж">Макияж</option>
+                    <option value="маникюр">Маникюр</option>
+                    <option value="педикюр">Педикюр</option>
+                </select>
+
+                <label for="message">Сообщение:</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+
+                <button type="submit">Отправить</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 FOR EVERYONE</p>
+    </footer>
+</body>
+</html>
